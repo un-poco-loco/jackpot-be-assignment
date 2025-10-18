@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: jackpot-service-test
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: jackpot-service-test
+      auto-offset-reset: earliest
+
+  h2:
+    console:
+      enabled: false
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+
+jackpot:
+  kafka:
+    topic: jackpot-bets-test
+  mock-enabled: true
+
+logging:
+  level:
+    com.jackpot: INFO
